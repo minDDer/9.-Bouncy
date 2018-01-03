@@ -1,0 +1,196 @@
+//VARIABLES
+
+//COLORS
+@accentGreenColor: #19bd9a;
+
+@whiteTextColor: #fff;
+@headersTextColor: #333b46;
+@smallHeadersColor: #464646;
+
+@buttonBorderColor: #333b46;
+@greyTextColor: #81868e;
+@greyBackgroundColor: #81868e;
+@lightGreyBackgroundColor: #f3f3f3;
+
+//FONTS
+@font-face {
+    font-family: BigJohn;
+    src: url(../fonts/BIGJOHN.otf)
+}
+@BigJohn: BigJohn, serif;
+
+@font-face {
+    font-family: SourceSansPro;
+    src: url(../fonts/SourceSansPro-Regular.ttf)
+}
+@SourceSansPro: SourceSansPro, serif;
+
+@font-face {
+    font-family: SourceSansPro-Bold;
+    src: url(../fonts/SourceSansPro-Bold.ttf)
+}
+@SourceSansPro-Bold: SourceSansPro-Bold, serif;
+
+@font-face {
+    font-family: OpenSans;
+    src: url(../fonts/OpenSans.ttf)
+}
+@OpenSans: OpenSans, serif;
+
+//MIXINS
+.logoStyleMixin {
+    display: inline-block;
+    font-family: BigJohn, serif;
+    
+    color: @whiteTextColor;
+    font-size: 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.sectionStyleMixin {
+    padding: 80px;
+    box-sizing: border-box;
+}
+
+.headerStyleMixin {
+    margin-top: 0;
+    padding: 15px 0;
+    
+    color: @headersTextColor;
+    
+    font-family: SourceSansPro, serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 12px;
+    letter-spacing: 4px;
+    
+    text-transform: uppercase;
+}
+
+.paragraphStyleMixin {
+    color: @greyTextColor;
+
+    font-family: OpenSans, serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 25px;
+    
+    text-align: justify;
+}
+
+.darkButtonStyleMixin {
+    display: block;
+    
+    width: 100px;
+    
+    padding: 10px 20px;
+    
+    border-radius: 20px;
+    border: 1px solid @buttonBorderColor;
+    background-color: transparent;
+    
+    color: @buttonBorderColor;
+    font-family: OpenSans, serif;
+    font-size: 16px;font-weight: 400;
+    line-height: 12px; 
+    text-transform: capitalize;
+    text-decoration: none;
+    text-align: center;
+    
+    &:hover {
+        background-color: @accentGreenColor;
+        border: 1px solid @accentGreenColor;
+        color: @whiteTextColor;
+    }
+}
+
+.inputStyleMixin {
+    padding: 5px 10px;
+    
+    box-sizing: border-box;
+    
+    border: 3px solid @lightGreyBackgroundColor;
+    
+    font-family: @OpenSans;
+    color: @greyTextColor;
+    font-size: 16px;
+    text-transform: capitalize;
+    
+    &:hover {
+        background-color: @lightGreyBackgroundColor;
+    }
+    
+    &:focus {
+        outline: none;
+        background-color: @lightGreyBackgroundColor;
+    }
+}
+
+.submitButtonStyleMixin {
+    background-color: @accentGreenColor;
+    border: 1px solid @accentGreenColor;
+    
+    font-family: @OpenSans, serif;
+    color: @whiteTextColor;
+    font-size: 16px;
+    text-transform: uppercase;
+    
+    &:hover {
+        background-color: #fff;
+        border: 1px solid @accentGreenColor;
+        color: @accentGreenColor;
+        
+        cursor: pointer;
+    }
+}
+
+.roundIconStyleMixin {
+    display: inline-block;
+    
+    width: 70px;
+    height: 70px;
+    
+    border-radius: 50%;
+    border: 1px solid @greyBackgroundColor;
+    background-color: @greyBackgroundColor;
+    
+    color: @whiteTextColor;
+    font-size: 30px;
+    text-align: center;
+    line-height: 70px;
+    
+    &:hover {
+        background-color: @accentGreenColor;
+        border: 1px solid @accentGreenColor;
+        cursor: pointer;
+    }
+}
+
+//ADAPTIVITY MIXIN
+.respond-to (@device, @content) {
+    & when (@device = phones) {
+        @media screen and (max-width: 480px) { @content(); }
+    }
+    & when (@device = wide-phones) {
+        @media screen and (min-width: 480px) and (max-width: 767px) { @content(); }
+    }
+    & when (@device = tablets) {
+        @media screen and (min-width: 768px) and (max-width: 991px) { @content(); }
+    }
+    & when (@device = small-desktops) {
+        @media screen and (min-width: 992px) and (max-width: 1199px) { @content(); }
+    }
+    & when (@device = lg-desktops-and-smaller) {
+        @media screen and (max-width: 1200px) { @content(); }
+    }
+    & when (@device = lg-desktops) {
+        @media screen and (min-width: 1200px) and (max-width: 1440px) { @content(); }
+    }
+    & when (@device = xlg-desktops) {
+        @media screen and (min-width: 1441px) { @content(); }
+    }   
+}
+//END OF ADAPTIVITY MIXIN
+
+//END OF VARIABLES
